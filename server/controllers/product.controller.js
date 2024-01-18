@@ -31,5 +31,12 @@ module.exports = {
                     console.log(err)
                     res.json(err)
                 })
+    },
+
+    updateProduct: (req, res) => {
+        Product.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+        .then(updatedProduct => res.json(updatedProduct))
+        .catch(err => {console.log('updateProduct err: ', err);
+                        response.json(err)})
     }
 }

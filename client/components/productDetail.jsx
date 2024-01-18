@@ -21,7 +21,8 @@ const ProductDetail = (props) => {
             <p>Title: {product.productTitle}</p>
             <p>Price: ${product.productPrice}</p>
             <p>Description: {product.productDescription}</p>
-            <Link to={'/home'}>Go Back</Link>
+            <Link to={'/home'} style={{border:"blue 1px solid", margin:'3px', padding:'3px'}}>Go Back</Link>
+            <Link to={`/product/edit/${id}`} style={{border:"blue 1px solid", margin:'3px', padding:'3px'}}>Edit</Link>
         </div>
     );
 }

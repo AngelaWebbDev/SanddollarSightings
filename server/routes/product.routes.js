@@ -8,4 +8,7 @@ module.exports = (app) => {
     app.get('/api/productDetail/:id', ProductController.getOneById)
     //**Create** add new product
     app.post('/api/newproduct',ProductController.addProduct);
+
+    //**Update** update a product (by id)
+    app.put('/api/edit/:id', ProductController.updateProduct)
 }
