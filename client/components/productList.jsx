@@ -23,7 +23,8 @@ const ProductList = (props) => {
         {products.map((product) => {  
             return(
                 <div key={product._id} style={{border:'1px white solid', margin:'3px', paddingBottom:'10px'}}>
-                    <p>Title: {product.productTitle}</p>
+                    <p>{product.productTitle}</p>
+                    <Link to={`/productDetail/${product._id}`}>see details</Link>
                 </div>
             )
             
