@@ -12,7 +12,7 @@ const UpdateProduct = (props) => {
 
     // retrieve the current values for this person to get prefilled values for form
     useEffect(() => {
-        axios.get('http://localhost:8000/api/productDetail/' + id)
+        axios.get('http://localhost:8000/api/oneProductById/' + id)
             .then(res => {
                 setProductTitle(res.data.productTitle);
                 setProductPrice(res.data.productPrice);
@@ -30,7 +30,6 @@ const UpdateProduct = (props) => {
             productDescription
         })
             .then(res => {
-                console.log('put res = ', res);
                 navigate("/home");
             })
             .catch(err => console.log('put err: ', err))

@@ -12,7 +12,6 @@ module.exports = {
     getAllProducts: (req, res) => {
         Product.find({})
             .then(products => {
-                console.log(products); //for troubleshooting
                 res.json(products);
             })
             .catch(err => {
@@ -24,11 +23,9 @@ module.exports = {
     getOneById: (req, res) => {
         Product.findOne({_id: req.params.id})
                 .then(product => {
-                    console.log(product);
                     res.json(product);
                 })
                 .catch(err => {
-                    console.log(err)
                     res.json(err)
                 })
     },
@@ -38,5 +35,12 @@ module.exports = {
         .then(updatedProduct => res.json(updatedProduct))
         .catch(err => {console.log('updateProduct err: ', err);
                         response.json(err)})
+    },
+
+    deleteProduct: (req, res) =>{
+        Product.deleteOne({ _id: req.params.id })
+        .then(confirmMsg => res.json(confirmMsg))
+        .catch(err => {console.log('deleteOne err: ', err);
+                        res.json(err)})
     }
 }

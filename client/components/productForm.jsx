@@ -18,8 +18,6 @@ const ProductForm = (props) => {
             productDescription
         })
             .then(res => {
-                console.log('res from post to /api/newproduct: ', res);
-                console.log('res.data: ', res.data);
                 setProducts([...products, res.data]);
             })
             .catch(err => console.log('post to /api/newproduct error: ', err))
