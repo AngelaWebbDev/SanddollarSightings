@@ -9,6 +9,7 @@ const UpdateProduct = (props) => {
     const [productPrice, setProductPrice] = useState();
     const [productDescription, setProductDescription] = useState();
     const navigate = useNavigate();
+    const [errors, setErrors] = useState([])
 
     // retrieve the current values for this person to get prefilled values for form
     useEffect(() => {
@@ -32,7 +33,8 @@ const UpdateProduct = (props) => {
             .then(res => {
                 navigate("/home");
             })
-            .catch(err => console.log('put err: ', err))
+            .catch(err => {console.log('put err: ', err);
+                            setErrors(err.response.data.errors)})
     }
 
     return (
@@ -43,19 +45,22 @@ const UpdateProduct = (props) => {
                     <label>Title</label>
                     <input type="text"  
                     value={productTitle} 
-                    onChange={(e) => { setProductTitle(e.target.value) }} /><br />
+                    onChange={(e) => { setProductTitle(e.target.value) }} />
+                    {errors.productTitle?<p>{errors.productTitle.message}</p>:null}<br />
                 </p>
                 <p>
                 <label>Price</label>
                     <input   type="number" min="0" step=".01"  
                     value={productPrice} 
-                    onChange={(e) => { setProductPrice(e.target.value) }} /><br />
+                    onChange={(e) => { setProductPrice(e.target.value) }} />
+                    {errors.productPrice?<p>{errors.productPrice.message}</p>:null}<br />
                 </p>
                 <p>
                 <label>Description</label>
                     <input type="text"  
                     value={productDescription} 
-                    onChange={(e) => { setProductDescription(e.target.value) }} /><br />
+                    onChange={(e) => { setProductDescription(e.target.value) }} />
+                    {errors.productDescription?<p>{errors.productDescription.message}</p>:null}<br />
                 </p>
                 <button>Submit</button>
             </form>
