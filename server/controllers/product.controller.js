@@ -12,35 +12,35 @@ module.exports = {
     getAllProducts: (req, res) => {
         Product.find({})
             .then(products => {
-                res.json(products);
+                res.status(200).json(products);
             })
             .catch(err => {
                 console.log(err)
-                res.json(err)
+                res.status(500).json(err)
             })
     },
 
     getOneById: (req, res) => {
         Product.findOne({_id: req.params.id})
                 .then(product => {
-                    res.json(product);
+                    res.status(200).json(product);
                 })
                 .catch(err => {
-                    res.json(err)
+                    res.status(500).json(err)
                 })
     },
 
     updateProduct: (req, res) => {
-        Product.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
-        .then(updatedProduct => res.json(updatedProduct))
+        Product.findOneAndUpdate({_id: req.params.id}, req.body, {new:true, runValidators: true})
+        .then(updatedProduct => res.status(200).json(updatedProduct))
         .catch(err => {console.log('updateProduct err: ', err);
-                        response.json(err)})
+                        res.status(500).json(err)})
     },
 
     deleteProduct: (req, res) =>{
         Product.deleteOne({ _id: req.params.id })
-        .then(confirmMsg => res.json(confirmMsg))
+        .then(confirmMsg => res.status(200).json(confirmMsg))
         .catch(err => {console.log('deleteOne err: ', err);
-                        res.json(err)})
+                        res.status(500).json(err)})
     }
 }

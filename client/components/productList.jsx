@@ -28,7 +28,7 @@ const ProductList = (props) => {
 
     return (
         <>
-            <p>Products:</p>
+            <h3>Products:</h3>
             {products.map((product) => {
                 return (
                     <div key={product._id} style={{ border: '1px white solid', margin: '3px', paddingBottom: '10px' }}>

@@ -5,10 +5,10 @@ import { useNavigate, useParams } from "react-router-dom";
 const UpdateProduct = (props) => {
 
     const { id } = useParams();
-    const [productTitle, setProductTitle] = useState();
-    const [productPrice, setProductPrice] = useState();
-    const [productDescription, setProductDescription] = useState();
-    const navigate = useNavigate();
+    const [productTitle, setProductTitle] = useState('');
+    const [productPrice, setProductPrice] = useState('');
+    const [productDescription, setProductDescription] = useState('');
+    const navigate = useNavigate('');
     const [errors, setErrors] = useState([])
 
     // retrieve the current values for this person to get prefilled values for form
@@ -31,6 +31,7 @@ const UpdateProduct = (props) => {
             productDescription
         })
             .then(res => {
+                console.log('update completed: ', res);
                 navigate("/home");
             })
             .catch(err => {console.log('put err: ', err);
