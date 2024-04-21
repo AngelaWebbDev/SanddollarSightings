@@ -9,7 +9,7 @@ const ProductForm = (props) => {
     const [confirmMessage, setConfirmMessage] = useState('')
     const [errors, setErrors] = useState([])
 
-    //handler when the form is submitted
+    //add new product
     const addNewProductHandler = (e) => {
         e.preventDefault();
 
@@ -31,30 +31,40 @@ const ProductForm = (props) => {
                             document.getElementById('titleInput').focus();
                             setConfirmMessage('Product not added due to the errors below:')
                         })
-        
-        
     }
 
     return (
         <form id='addForm' onSubmit={addNewProductHandler}>
+            {/* main error message */}
             <p id='confirmMessage' className='errorMessage'>{confirmMessage}</p>
-                <input  type="text" 
-                        placeholder="title"
-                        id='titleInput'
-                        onChange={(e) => setProductTitle(e.target.value)} 
-                        value={productTitle}
-                        autoFocus />
-                {errors.productTitle?<p className='errorMessage'>{errors.productTitle.message}</p>:null}
-                <input  type="number" min="0" step=".01" 
-                placeholder='price'
-                        onChange={(e) => setProductPrice(e.target.value)} 
-                        value={productPrice}/>
-                        {errors.productPrice?<p className='errorMessage'>{errors.productPrice.message}</p>:null}
-                <textarea rows='3' cols='40'
-                        onChange={e => setProductDescription(e.target.value)}
-                        placeholder='Description (max 100 characters)'
-                        value={productDescription}/>
-                        {errors.productDescription?<p className='errorMessage'>{errors.productDescription.message}</p>:null}
+
+            {/* title */}
+            <input  type="text" 
+                    placeholder="title"
+                    id='titleInput'
+                    onChange={(e) => setProductTitle(e.target.value)} 
+                    value={productTitle}
+                    autoFocus />
+            {errors.productTitle?<p className='errorMessage'>{errors.productTitle.message}</p>:null}
+
+            {/* price */}
+            <input  type="number" 
+                    min="0" 
+                    step=".01" 
+                    placeholder='price'
+                    onChange={(e) => setProductPrice(e.target.value)} 
+                    value={productPrice}/>
+            {errors.productPrice?<p className='errorMessage'>{errors.productPrice.message}</p>:null}
+
+            {/* description */}
+            <textarea rows='3' 
+                    cols='40'
+                    onChange={e => setProductDescription(e.target.value)}
+                    placeholder='Description (max 100 characters)'
+                    value={productDescription}/>
+            {errors.productDescription?<p className='errorMessage'>{errors.productDescription.message}</p>:null}
+
+            {/* submit */}
             <button className='addButton'>Add New Product</button>
         </form>
     )

@@ -22,6 +22,7 @@ const UpdateProduct = (props) => {
             .catch(err => console.log('get product detail in update err: ', err))
     }, [])
 
+    // update an item
     const updateProduct = (e) => {
         e.preventDefault();
 
@@ -34,35 +35,49 @@ const UpdateProduct = (props) => {
                 console.log('update completed: ', res);
                 navigate("/home");
             })
-            .catch(err => {console.log('put err: ', err);
-                            setErrors(err.response.data.errors)})
+            .catch(err => {
+                console.log('put err: ', err);
+                setErrors(err.response.data.errors)
+            })
     }
 
     return (
         <section id='updateProduct'>
+            {/* title of page */}
             <h1 className='itemDetail'>Edit Item Details</h1>
+
+            {/* update form */}
             <form onSubmit={updateProduct}>
-                    <input className='itemDetail' type="text"  
-                    value={productTitle} 
-                    onChange={(e) => { setProductTitle(e.target.value) }} />
-                    {errors.productTitle?<p className='errorMessage'>{errors.productTitle.message}</p>:null}<br />
-                    <input className='itemDetail'  type="number" min="0" step=".01"  
-                    value={productPrice} 
-                    onChange={(e) => { setProductPrice(e.target.value) }} />
-                    {errors.productPrice?<p className='errorMessage'>{errors.productPrice.message}</p>:null}<br />
+                {/* title */}
+                <input className='itemDetail' 
+                        type="text"
+                        value={productTitle}
+                        onChange={(e) => { setProductTitle(e.target.value) }} />
+                {errors.productTitle ? <p className='errorMessage'>{errors.productTitle.message}</p> : null}<br />
+
+                {/* price */}
+                <input className='itemDetail' 
+                        type="number" 
+                        min="0" 
+                        step=".01"
+                        value={productPrice}
+                        onChange={(e) => { setProductPrice(e.target.value) }} />
+                {errors.productPrice ? <p className='errorMessage'>{errors.productPrice.message}</p> : null}<br />
+
+                {/* description */}
+                <input className='itemDetail' 
+                        type="text"
+                        value={productDescription}
+                        onChange={(e) => { setProductDescription(e.target.value) }} />
+                {errors.productDescription ? <p className='errorMessage'>{errors.productDescription.message}</p> : null}<br />
                 
-                    <input className='itemDetail' type="text"  
-                    value={productDescription} 
-                    onChange={(e) => { setProductDescription(e.target.value) }} />
-                    {errors.productDescription?<p className='errorMessage'>{errors.productDescription.message}</p>:null}<br />
-                    <div id='detailButtons'>
+                {/* buttons: home, details, cancel */}
+                <div id='detailButtons'>
                     <Link to={'/home'} className='lookLikeButton'>Home</Link>
                     <Link to={`/productDetail/${id}`} className='lookLikeButton'>Details</Link>
-                <button>Submit</button>
-                <Link to={`/productDetail/${id}`} className='lookLikeButton'>Cancel</Link>
-
-                    </div>
-                   
+                    <button>Submit</button>
+                    <Link to={`/productDetail/${id}`} className='lookLikeButton'>Cancel</Link>
+                </div>
             </form>
         </section>
     )

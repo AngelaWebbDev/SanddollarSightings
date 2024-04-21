@@ -7,8 +7,9 @@ const ProductDetail = (props) => {
     const [product, setProduct] = useState([])
     const navigate = useNavigate();
 
+    //get details for one product
     useEffect(() => {
-        axios.get("http://localhost:8000/api/oneProductById/" + id) //attach id to api address
+        axios.get("http://localhost:8000/api/oneProductById/" + id)
             .then(res => {
                 console.log('get product detail res.data = ', res.data);
                 setProduct(res.data);
@@ -16,6 +17,7 @@ const ProductDetail = (props) => {
             .catch(err => console.log('get product detail error: ', err));
     }, []);
 
+    //delete one products, then return home
     const deleteProduct = (id, title) => {
         axios.delete('http://localhost:8000/api/oneProductById/' + id)
             .then(res => {

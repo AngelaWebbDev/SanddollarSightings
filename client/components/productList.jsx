@@ -6,6 +6,7 @@ const ProductList = (props) => {
     const {products, setProducts } = props;
     const navigate = useNavigate();
 
+    //get all products from database
     useEffect(() => {
         axios.get("http://localhost:8000/api/allProducts")
             .then((res) => {
@@ -16,6 +17,7 @@ const ProductList = (props) => {
             })
     }, [])
 
+    //delete product
     const deleteProduct = (id, title) => {
         axios.delete('http://localhost:8000/api/oneProductById/' + id)
             .then(res => {
@@ -29,6 +31,7 @@ const ProductList = (props) => {
     return (
         <>
             <h3>Products</h3>
+            {/* list all products in alphabetical order */}
             {products.sort((item1, item2) => (item1.productTitle.toLowerCase() < item2.productTitle.toLowerCase() 
                             ? -1 
                             : ((item1.productTitle.toLowerCase() > item2.productTitle.toLowerCase()) ? 1 : 0))).map((product) => {
@@ -39,7 +42,6 @@ const ProductList = (props) => {
                         <button onClick={(e) => deleteProduct(product._id, product.productTitle)}>Delete</button>
                     </div>
                 )
-
             })}
         </>
     );
