@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 const UpdateProduct = (props) => {
 
@@ -39,33 +39,32 @@ const UpdateProduct = (props) => {
     }
 
     return (
-        <div>
-            <h1>Update Product Details</h1>
+        <section id='updateProduct'>
+            <h1 className='itemDetail'>Edit Item Details</h1>
             <form onSubmit={updateProduct}>
-                <p>
-                    <label>Title</label>
-                    <input type="text"  
+                    <input className='itemDetail' type="text"  
                     value={productTitle} 
                     onChange={(e) => { setProductTitle(e.target.value) }} />
-                    {errors.productTitle?<p>{errors.productTitle.message}</p>:null}<br />
-                </p>
-                <p>
-                <label>Price</label>
-                    <input   type="number" min="0" step=".01"  
+                    {errors.productTitle?<p className='errorMessage'>{errors.productTitle.message}</p>:null}<br />
+                    <input className='itemDetail'  type="number" min="0" step=".01"  
                     value={productPrice} 
                     onChange={(e) => { setProductPrice(e.target.value) }} />
-                    {errors.productPrice?<p>{errors.productPrice.message}</p>:null}<br />
-                </p>
-                <p>
-                <label>Description</label>
-                    <input type="text"  
+                    {errors.productPrice?<p className='errorMessage'>{errors.productPrice.message}</p>:null}<br />
+                
+                    <input className='itemDetail' type="text"  
                     value={productDescription} 
                     onChange={(e) => { setProductDescription(e.target.value) }} />
-                    {errors.productDescription?<p>{errors.productDescription.message}</p>:null}<br />
-                </p>
+                    {errors.productDescription?<p className='errorMessage'>{errors.productDescription.message}</p>:null}<br />
+                    <div id='detailButtons'>
+                    <Link to={'/home'} className='lookLikeButton'>Home</Link>
+                    <Link to={`/productDetail/${id}`} className='lookLikeButton'>Details</Link>
                 <button>Submit</button>
+                <Link to={`/productDetail/${id}`} className='lookLikeButton'>Cancel</Link>
+
+                    </div>
+                   
             </form>
-        </div>
+        </section>
     )
 }
 export default UpdateProduct;
