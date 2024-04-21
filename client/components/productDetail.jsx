@@ -31,7 +31,7 @@ const ProductDetail = (props) => {
             <p className='itemDetail'>${product.productPrice}</p>
             <p id='description' className='itemDetail'>{product.productDescription}</p>
             <div id='detailButtons'>
-                <Link to={'/home'} className='lookLikeButton'>Go Back</Link>
+                <Link to={'/home'} className='lookLikeButton'>Back to List</Link>
                 <Link to={`/product/edit/${id}`} className='lookLikeButton'>Edit</Link>
                 <button onClick={(e) => deleteProduct(product._id, product.productTitle)}>Delete</button>
             </div>
