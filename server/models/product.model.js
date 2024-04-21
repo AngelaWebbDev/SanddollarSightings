@@ -12,7 +12,8 @@ const ProductSchema = mongoose.Schema({
                 },
     productDescription:{type:String,
                         required:[true, 'Description is required.'],
-                        minlength:[3,'Description must be 3 characters long.']}
+                        minlength:[3,'Description must be 3 characters long.'],
+                        maxlength:[100,'Description cannot be more than 100 characters long.']}
 }, {timestamps:true})
 
 module.exports = mongoose.model('Product', ProductSchema)
