@@ -4,93 +4,6 @@
   padding: 2rem;
   text-align: center;
 }
-.oneProduct{
-  border: 1px rgba(128, 128, 128,0.5) solid;
-  margin: 3px;
-  display:flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding:2px 10px;
-  border-bottom-right-radius: 10px;
-  border-top-left-radius: 10px;
-  background-color: rgba(19, 19, 19, 0.9);
-}
-.lookLikeButton{
-  border:1px black solid;
-  border-radius: 5px;
-  background-color:darkslategray;
-  color: white;
-  padding:1px 7px;
-  height:fit-content;
-  font-weight: 400;
-  white-space: nowrap;
-  margin:0 3px;
-  text-decoration: none;
-}
-.lookLikeButton:hover{
-  background-color: yellowgreen;
-  color:black;
-}
-.productTitle{
-  margin-right:10px;
-  width:50%;
-}
-.errorMessage{
-  color:red;
-  margin-top:0;
-  margin-bottom:5px;
-}
-#confirmMessage{
-  margin-bottom: 20px;
-}
-.addButton{
-  margin:10px;
-  padding:5px 8px;
-}
-.addSection{
-  display:flex;
-  justify-content: space-around;
-}
-#productDetail{
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding:25% 16% 50% 20%;
-  margin:10% 0 10% -16%;
-  border:1px gray dashed;
-  border-bottom-left-radius: 40px;
-  border-top-right-radius: 40px;
-  background-color: rgba(19, 19, 19,0.9);
-  width:100%;
-}
-h1{
-  white-space: nowrap;
-  font-size: 2rem;
-  padding-bottom:10%;
-  text-decoration: underline;
-}
-#description{
-  margin-bottom:10%;
-}
-#addForm{
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding:0 10%;
-  border:1px gray dashed;
-  border-bottom-right-radius: 10px;
-  border-top-left-radius: 10px;
-  background-color: rgba(19, 19, 19,0.9);
-}
-input{
-  margin-bottom:10px;
-  padding:3px;
-}
-h3{
-  margin-bottom:0;
-}
 body{
   background-image: radial-gradient(black, darkslategray, red, orange, yellow, green , blue, purple, white );
 }
@@ -112,14 +25,125 @@ button:hover{
   border:1px black solid;
   cursor: pointer;
 }
+h1{
+  /* white-space: nowrap; */
+  font-size: 1.25rem;
+  padding-bottom:10%;
+  text-decoration: underline;
+  /* max-width: 25%; */
+}
+h3{
+  margin-bottom:0;
+}
+input{
+  margin-bottom:10px;
+  padding:3px;
+}
+
+/************************************************************************
+                                                      CLASSES
+*************************************************************************/
+
+.addButton{
+  margin:10px;
+  padding:5px 8px;
+}
+.addSection{
+  display:flex;
+  justify-content: space-around;
+}
+.errorMessage{
+  color:red;
+  margin-top:0;
+  margin-bottom:5px;
+}
 .itemDetail{
   margin: 2% 5%;
   text-align: center;
   width:fit-content;
+  max-width:80%;
   /* padding:2px 10px; */
+}
+.lookLikeButton{
+  border:1px black solid;
+  border-radius: 5px;
+  background-color:darkslategray;
+  color: white;
+  padding:1px 7px;
+  height:fit-content;
+  font-weight: 400;
+  white-space: nowrap;
+  margin:0 3px;
+  text-decoration: none;
+}
+.lookLikeButton:hover{
+  background-color: yellowgreen;
+  color:black;
+}
+.oneProduct{
+  border: 1px rgba(128, 128, 128,0.5) solid;
+  margin: 3px;
+  display:flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding:2px 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: rgba(19, 19, 19, 0.9);
+}
+.productTitle{
+  margin-right:10px;
+  width:50%;
+}
+/************************************************************************
+                                                      IDs
+*************************************************************************/
+
+#addForm{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding:0 10%;
+  border:1px gray dashed;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: rgba(19, 19, 19,0.9);
+}
+#confirmMessage{
+  margin-bottom: 20px;
+}
+#description{
+  margin-bottom:10%;
 }
 #detailButtons{
   display:flex;
-  margin-bottom: -20%;
-  margin-top:20%;
+  margin-bottom: 5%;
+  margin-top:10%;
+}
+#productDetail{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:5%;
+  border:1px gray dashed;
+  border-top-left-radius:20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgba(19, 19, 19,0.9);
+  width:fit-content;
+}
+#updateProduct{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:5%;
+  /* margin:0 6%; */
+  border:1px gray dashed;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: rgba(19, 19, 19,0.9);
+  width:fit-content;
+  /* max-width:80%; */
 }
