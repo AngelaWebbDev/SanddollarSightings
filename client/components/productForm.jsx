@@ -24,38 +24,31 @@ const ProductForm = (props) => {
             .catch(err => {console.log('post to /api/newproduct error: ', err);
                             setErrors(err.response.data.errors)})
 
-        setConfirmMessage(`${productTitle} has been added.`)
+        productTitle.length>0 ? setConfirmMessage(`${productTitle} has been added.`) 
+                                : setConfirmMessage('The information was not added due to the errors below:') 
         setProductTitle('')
         setProductPrice('')
         setProductDescription('')
     }
 
     return (
-        <form onSubmit={addNewProductHandler}>
-            <p>{confirmMessage}</p>
-            {/* <p> */}
-                <label>Title</label>
-                <input  type="text" 
+        <form id='addForm' onSubmit={addNewProductHandler}>
+            <p id='confirmMessage' className='errorMessage'>{confirmMessage}</p>
+                <input  type="text" placeholder="title"
                         onChange={(e) => setProductTitle(e.target.value)} 
                         value={productTitle} />
-                {errors.productTitle?<p>{errors.productTitle.message}</p>:null}
-                <br/>
-            {/* </p>
-            <p> */}
-                <label>Price</label>
+                {errors.productTitle?<p className='errorMessage'>{errors.productTitle.message}</p>:null}
                 <input  type="number" min="0" step=".01" 
+                placeholder='price'
                         onChange={(e) => setProductPrice(e.target.value)} 
                         value={productPrice}/>
-                        {errors.productPrice?<p>{errors.productPrice.message}</p>:null}<br/>
-            {/* </p>
-            <p> */}
-                <label>Description</label>
-                <input type="textarea" rows='20' cols='40'
+                        {errors.productPrice?<p className='errorMessage'>{errors.productPrice.message}</p>:null}
+                <textarea rows='3' cols='40'
                         onChange={e => setProductDescription(e.target.value)}
+                        placeholder='Description (max 100 characters)'
                         value={productDescription}/>
-                        {errors.productDescription?<p>{errors.productDescription.message}</p>:null}<br />
-            {/* </p> */}
-            <button style={{border:"2px red solid"}}>Add New Product</button>
+                        {errors.productDescription?<p className='errorMessage'>{errors.productDescription.message}</p>:null}
+            <button className='lookLikeButton addButton'>Add New Product</button>
         </form>
     )
 }

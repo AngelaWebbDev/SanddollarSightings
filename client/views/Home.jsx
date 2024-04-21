@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import ProductForm from '../components/productForm';
+import ProductForm from '../components/productForm.jsx';
 import ProductList from '../components/productList.jsx';
 
-const Main = (props) => {
+const Home = (props) => {
     const [products, setProducts] = useState([]);
 
     return (
@@ -12,4 +12,4 @@ const Main = (props) => {
         </div>
     )
 }
-export default Main;
+export default Home;

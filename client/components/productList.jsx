@@ -28,13 +28,15 @@ const ProductList = (props) => {
 
     return (
         <>
-            <h3>Products:</h3>
-            {products.map((product) => {
+            <h3>Products</h3>
+            {products.sort((item1, item2) => (item1.productTitle.toLowerCase() < item2.productTitle.toLowerCase() 
+                            ? -1 
+                            : ((item1.productTitle.toLowerCase() > item2.productTitle.toLowerCase()) ? 1 : 0))).map((product) => {
                 return (
-                    <div key={product._id} style={{ border: '1px white solid', margin: '3px', paddingBottom: '10px' }}>
-                        <p>{product.productTitle}</p>
-                        <Link to={`/productDetail/${product._id}`}>see details</Link>
-                        <button onClick={(e) => deleteProduct(product._id, product.productTitle)}>Delete</button>
+                    <div key={product._id} className='oneProduct'>
+                        <p className='productTitle'>{product.productTitle}</p>
+                        <Link to={`/productDetail/${product._id}`} className='lookLikeButton'>see details</Link>
+                        <button onClick={(e) => deleteProduct(product._id, product.productTitle)} className='lookLikeButton'>Delete</button>
                     </div>
                 )
 
