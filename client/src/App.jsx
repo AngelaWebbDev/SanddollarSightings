@@ -1,8 +1,9 @@
 import './App.css'
 import Home from '../views/Home'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import ProductDetail from '../components/productDetail'
-import UpdateProduct from '../components/updateProduct'
+import Welcome from '../components/welcome'
+import SightingDetail from '../components/sightingDetail'
+import UpdateSighting from '../components/updateSighting'
 
 function App() {
 
@@ -10,9 +11,10 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/home" default element={<Home />}/>
-        <Route path="/productDetail/:id" element={<ProductDetail />} />
-        <Route path="/product/edit/:id" element={<UpdateProduct/>}/>
+        <Route path='' element={<Welcome/>}/>
+        <Route path="/home" element={<Home />}/>
+        <Route path="/sightingDetail/:id" element={<SightingDetail />} />
+        <Route path="/sighting/edit/:id" element={<UpdateSighting/>}/>
       </Routes>
     </BrowserRouter>
       

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import ProductForm from '../components/productForm.jsx';
-import ProductList from '../components/productList.jsx';
+import SightingForm from '../components/sightingForm.jsx';
+import SightingList from '../components/sightingList.jsx';
 
 const Home = (props) => {
-    const [products, setProducts] = useState([]);
+    const [sightings, setSightings] = useState([]);
 
     return (
         <div>
-            <ProductForm products={products} setProducts={setProducts}/>
-            <ProductList products={products} setProducts={setProducts} />
+            <SightingForm sightings={sightings} setSightings={setSightings}/>
+            <SightingList sightings={sightings} setSightings={setSightings} />
         </div>
     )
 }
