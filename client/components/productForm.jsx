@@ -20,23 +20,30 @@ const ProductForm = (props) => {
         })
             .then(res => {
                 setProducts([...products, res.data]);
+                document.getElementById('titleInput').focus();
+                setConfirmMessage(`${productTitle} has been added.`);setProductTitle('');
+                setProductPrice('');
+                setProductDescription('');
+                setErrors([]);
             })
             .catch(err => {console.log('post to /api/newproduct error: ', err);
-                            setErrors(err.response.data.errors)})
-
-        productTitle.length>0 ? setConfirmMessage(`${productTitle} has been added.`) 
-                                : setConfirmMessage('The information was not added due to the errors below:') 
-        setProductTitle('')
-        setProductPrice('')
-        setProductDescription('')
+                            setErrors(err.response.data.errors);
+                            document.getElementById('titleInput').focus();
+                            setConfirmMessage('Product not added due to the errors below:')
+                        })
+        
+        
     }
 
     return (
         <form id='addForm' onSubmit={addNewProductHandler}>
             <p id='confirmMessage' className='errorMessage'>{confirmMessage}</p>
-                <input  type="text" placeholder="title"
+                <input  type="text" 
+                        placeholder="title"
+                        id='titleInput'
                         onChange={(e) => setProductTitle(e.target.value)} 
-                        value={productTitle} />
+                        value={productTitle}
+                        autoFocus />
                 {errors.productTitle?<p className='errorMessage'>{errors.productTitle.message}</p>:null}
                 <input  type="number" min="0" step=".01" 
                 placeholder='price'
@@ -48,7 +55,7 @@ const ProductForm = (props) => {
                         placeholder='Description (max 100 characters)'
                         value={productDescription}/>
                         {errors.productDescription?<p className='errorMessage'>{errors.productDescription.message}</p>:null}
-            <button class='addButton'>Add New Product</button>
+            <button className='addButton'>Add New Product</button>
         </form>
     )
 }
