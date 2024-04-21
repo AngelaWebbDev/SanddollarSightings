@@ -35,8 +35,8 @@ const ProductList = (props) => {
                 return (
                     <div key={product._id} className='oneProduct'>
                         <p className='productTitle'>{product.productTitle}</p>
-                        <Link to={`/productDetail/${product._id}`} className='lookLikeButton'>see details</Link>
-                        <button onClick={(e) => deleteProduct(product._id, product.productTitle)} className='lookLikeButton'>Delete</button>
+                        <Link to={`/productDetail/${product._id}`} className='lookLikeButton'>Details</Link>
+                        <button onClick={(e) => deleteProduct(product._id, product.productTitle)}>Delete</button>
                     </div>
                 )
 

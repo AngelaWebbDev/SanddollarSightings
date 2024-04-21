@@ -48,7 +48,7 @@ const ProductForm = (props) => {
                         placeholder='Description (max 100 characters)'
                         value={productDescription}/>
                         {errors.productDescription?<p className='errorMessage'>{errors.productDescription.message}</p>:null}
-            <button className='lookLikeButton addButton'>Add New Product</button>
+            <button class='addButton'>Add New Product</button>
         </form>
     )
 }

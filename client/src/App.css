@@ -22,9 +22,10 @@
   color: white;
   padding:1px 7px;
   height:fit-content;
-  font-weight: 300;
+  font-weight: 400;
   white-space: nowrap;
   margin:0 3px;
+  text-decoration: none;
 }
 .lookLikeButton:hover{
   background-color: yellowgreen;
@@ -50,6 +51,28 @@
   display:flex;
   justify-content: space-around;
 }
+#productDetail{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding:25% 16% 50% 20%;
+  margin:10% 0 10% -16%;
+  border:1px gray dashed;
+  border-bottom-left-radius: 40px;
+  border-top-right-radius: 40px;
+  background-color: rgba(19, 19, 19,0.9);
+  width:100%;
+}
+h1{
+  white-space: nowrap;
+  font-size: 2rem;
+  padding-bottom:10%;
+  text-decoration: underline;
+}
+#description{
+  margin-bottom:10%;
+}
 #addForm{
   display:flex;
   flex-direction: column;
@@ -70,4 +93,33 @@ h3{
 }
 body{
   background-image: radial-gradient(black, darkslategray, red, orange, yellow, green , blue, purple, white );
+}
+button{
+  border:1px black solid;
+  border-radius: 5px;
+  background-color:darkslategray;
+  color: whitesmoke;
+  font-size: 1rem;
+  font-weight: 100;
+  padding:4px 6px;
+  height:fit-content;
+  white-space: nowrap;
+  margin:0 3px;
+}
+button:hover{
+  background-color: yellowgreen;
+  color:black;
+  border:1px black solid;
+  cursor: pointer;
+}
+.itemDetail{
+  margin: 2% 5%;
+  text-align: center;
+  width:fit-content;
+  /* padding:2px 10px; */
+}
+#detailButtons{
+  display:flex;
+  margin-bottom: -20%;
+  margin-top:20%;
 }

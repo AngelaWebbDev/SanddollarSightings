@@ -26,14 +26,17 @@ const ProductDetail = (props) => {
     }
 
     return (
-        <div>
-            <p>Title: {product.productTitle}</p>
-            <p>Price: ${product.productPrice}</p>
-            <p>Description: {product.productDescription}</p>
-            <Link to={'/home'} style={{ border: "blue 1px solid", margin: '3px', padding: '3px' }}>Go Back</Link>
-            <Link to={`/product/edit/${id}`} style={{ border: "blue 1px solid", margin: '3px', padding: '3px' }}>Edit</Link>
-            <button onClick={(e) => deleteProduct(product._id, product.productTitle)}>Delete</button>
-        </div>
+        <section id='productDetail'>
+            <h1 className='itemDetail'>{product.productTitle}</h1>
+            <p className='itemDetail'>${product.productPrice}</p>
+            <p id='description' className='itemDetail'>{product.productDescription}</p>
+            <div id='detailButtons'>
+                <Link to={'/home'} className='lookLikeButton'>Go Back</Link>
+                <Link to={`/product/edit/${id}`} className='lookLikeButton'>Edit</Link>
+                <button onClick={(e) => deleteProduct(product._id, product.productTitle)}>Delete</button>
+            </div>
+            
+        </section>
     );
 }
 export default ProductDetail;
