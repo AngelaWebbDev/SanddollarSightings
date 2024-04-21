@@ -2,3 +2,5 @@ add registration/login
 
 user can only update their own entries
 contact info is not clickable for user's listings
+
+testing
