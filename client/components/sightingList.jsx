@@ -29,10 +29,11 @@ const SightingList = (props) => {
     }
 
     return (
-        <>
+        <section id='sightingList'>
             <h1 id='listTitle' className='calligraffitti-regular'>Sightings</h1>
             {/* list all sightings in alphabetical order by location */}
-            {sightings.sort((sighting1, sighting2) => (sighting1.location.toLowerCase() < sighting2.location.toLowerCase() 
+            <div id='sightings'>
+                {sightings.sort((sighting1, sighting2) => (sighting1.location.toLowerCase() < sighting2.location.toLowerCase() 
                             ? -1 
                             : ((sighting1.location.toLowerCase() > sighting2.location.toLowerCase()) ? 1 : 0))).map((sighting) => {
                 return (
@@ -43,7 +44,9 @@ const SightingList = (props) => {
                     </div>
                 )
             })}
-        </>
+            </div>
+            
+        </section>
     );
 }
 export default SightingList;
